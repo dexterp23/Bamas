@@ -4,7 +4,7 @@ function loginPage () {
 	nextPage('loginPage');
 	$.ui.clearHistory();
 	
-	custom_alert (global_uuid);
+	$('#loginPage [name=user_uuid]').val(global_uuid);
 
 }
 
