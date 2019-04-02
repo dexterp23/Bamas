@@ -3,6 +3,8 @@ function loginPage () {
 	$.ui.launch();
 	nextPage('loginPage');
 	$.ui.clearHistory();
+	
+	custom_alert (global_uuid);
 
 }
 
