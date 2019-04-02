@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BAMAS</title>
+	
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="css/icons.fa.css" /> <!-- http://fortawesome.github.io/Font-Awesome/cheatsheet/ -->
+    <link rel="stylesheet" type="text/css" href="appframework/2.1/css/icons.min.css" />
+    <link rel="stylesheet" type="text/css" href="appframework/2.1/css/af.ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css"  />
+    
+    <script type="application/javascript" src="appframework/2.1/appframework.js"></script>
+    <script type="application/javascript" src="appframework/2.1/appframework.ui.js" data-ver="1"></script>
+    
+    <!--AppFramework plugin for sliding side menu-->
+    <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.slidemenu.js"></script>
+    <script type="text/javascript" charset="utf-8" src="appframework/plugins/af.touchEvents.js"></script>
+
+    <!-- phantom library, needed for XDK "legacy" container api calls -->
+    <script src="intelxdk.js"></script>
+    <!-- phantom library, needed for Cordova api calls -->
+    <script src="cordova.js"></script>
+    <!-- phantom library, needed for XDK "legacy" container CORS -->
+    <script src="xhr.js"></script>
+	
+    <script type="text/javascript" src="./appframework/jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript" charset="utf-8" src="./appframework/jquery.validate.js"></script>
+    
+    <script type="text/javascript" charset="utf-8" src="./js/functions_global.js?1"></script>
+    <script type="text/javascript" charset="utf-8" src="./js/functions_users.js?1"></script>
+    <script type="text/javascript" charset="utf-8" src="./js/functions_upiti.js?1"></script>
+    <script type="text/javascript" charset="utf-8" src="./js/functions_general.js?1"></script>
+
+    
+    
+</head>
+<body style="overflow:hidden;"> 
+
+<div id="afui" class="android">
+
+    <!--Left Side Menu Navigation bar -->
+    <nav>
+        <ul class="list">
+        	<li id="login_user_box" class="login_show" style="display:none;"></li>
+            
+            
+        	<!-- samo kad user nije ulogovan -->
+            <li class="login_remove"><a href="javascript: void(0);" onClick="loginPage();" class="icon fa-sign-in big">Prijavi se</a></li>
+            <!-- samo kad user nije ulogovan end -->
+            
+            <!-- samo kad je user ulogovan -->
+            <li class="login_show" style="display:none;"><a href="javascript: void(0);" onClick="UpitForma();" class="icon fa-home big">Novi Upit</a></li>
+            <li class="login_show" style="display:none;"><a href="javascript: void(0);" onClick="UpitLista();" class="icon fa-save big">Snimnjeni Upiti</a></li>
+            <li class="login_show" style="display:none;"><a href="javascript: void(0);" onClick="ProizvodiSync();" class="icon fa-refresh big">Učitaj Proizvode</a></li>
+            <li class="login_show" style="display:none;"><a href="javascript: void(0);" onClick="logout();" class="icon fa-sign-out big">Odjavi se</a></li>
+            <!-- samo kad je user ulogovan - end-->
+            
+           <!--<li><a href="javascript: void(0);" onClick="aboutPage();" class="icon fa-user big">About Us</a></li>-->
+        </ul>
+    </nav>
+    
+    <div id="content" style="">
+
+        <!-- loginPage  -->
+        <div id="loginPage" class="panel" title="Prijava" data-footer="none">
+            <header>
+                <a id="menubadge" onclick='OpenSideMenu();' class='menuButton' style="float:right !important"></a>
+                <h1>Prijavi se</h1>
+            </header>
+            
+            <div class="logo_hold"></div>
+            
+            <div class="text_box_blue">
+            	Upišite vašu šifru za identifikaciju
+            </div>
+            
+            <form style="margin-top:10px;" id="login_form" onSubmit="return false;">
+                
+                <input name="login_password" id="login_password" class="required" type="text" placeholder="Šifra" autocomplete="off" value="" style="width:300px; margin-right: auto; margin-left: auto;" />
+                
+                <div class="buttons_hold">
+                    <a href="javascript: void(0);" onClick="loginSend();" class="button_regular">Prijavi se</a>
+                </div>
+                
+            </form>
+        
+        </div>
+        <!-- loginPage end -->
+
+        
+        
+        <!-- UpitForma -->
+        <div id="UpitForma" class="panel" title="UpitForma">
+            <header>
+                <a id="menubadge" onclick='OpenSideMenu();' class='menuButton' style="float:right !important"></a>
+                <h1></h1>
+                <a id="backButton" onClick="GoBack();" class='button'>Nazad</a>
+            </header>
+            
+            <div class="logo_hold"></div>
+            
+            <form style="margin-top:10px; padding-bottom:20px;" id="upit_form" onSubmit="return false;"></form>
+            
+            <footer>
+              <a href="javascript: void(0);" onClick="UpitSnimi('add');" class="tab_save"><span class="icon fa-save big"></span>Snimi Upit</a>
+              <a href="javascript: void(0);" onClick="UpitSnimi('edit');" class="tab_update"><span class="icon fa-save big"></span>Snimi Izmene</a>
+              <a href="javascript: void(0);" onClick="UpitDel();" class="tab_del"><span class="icon fa-minus-circle big"></span>Obriši Upit</a>
+            </footer>
+            
+        </div>
+        <!-- UpitForma end -->
+        
+        
+        
+        <!-- UpitLista -->
+        <div id="UpitLista" class="panel" title="UpitLista">
+            <header>
+                <a id="menubadge" onclick='OpenSideMenu();' class='menuButton' style="float:right !important"></a>
+                <h1>Snimnjeni Upiti</h1>
+                <!--<a id="backButton" onClick="GoBack();" class='button'>Nazad</a>-->
+            </header>
+            
+            <div class="logo_hold"></div>
+            
+            <ul class="list search_results_hold" style="padding-bottom:20px;"></ul>
+            
+            <footer>
+              <a href="javascript: void(0);" onClick="UpitSync(1);" class="tab_sync"><span class="icon fa-cloud-upload big"></span>Pošalji Upite</a>
+            </footer>
+            
+        </div>
+        <!-- UpitLista end -->
+        
+               
+      
+
+        
+               
+        
+        <!--
+        <div class="panel" title="About Us" id="aboutPage" >
+            <header>
+                <a id="menubadge" onclick='OpenSideMenu();' class='menuButton' style="float:right !important"></a>
+                <h1>About Us header</h1>
+                <a id="backButton" onClick="GoBack();" class='button'>Back</a>
+            </header>
+            
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. <a onClick="cordova.InAppBrowser.open('http://google.com', '_blank', 'location=yes');" class='button'>Maecenas feugiat consequat diam</a>. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas feugiat consequat diam. Maecenas metus. Vivamus diam purus, cursus a, commodo non, facilisis vitae, nulla. Aenean dictum lacinia tortor. Nunc iaculis, nibh non iaculis aliquam, orci felis euismod neque, sed ornare massa mauris sed velit. Nulla pretium mi et risus. Fusce mi pede, tempor id, cursus ac, ullamcorper nec, enim. Sed tortor. Curabitur molestie. Duis velit augue, condimentum at, ultrices a, luctus ut, orci. Donec pellentesque egestas eros. Integer cursus, augue in cursus faucibus, eros pede bibendum sem, in tempus tellus justo quis ligula. Etiam eget tortor. Vestibulum rutrum, est ut placerat elementum, lectus nisl aliquam velit, tempor aliquam eros nunc nonummy metus. In eros metus, gravida a, gravida sed, lobortis id, turpis. Ut ultrices, ipsum at venenatis fringilla, sem nulla lacinia tellus, eget aliquet turpis mauris non enim. Nam turpis. Suspendisse lacinia. Curabitur ac tortor ut ipsum egestas elementum. Nunc imperdiet gravida mauris. 
+            <footer>
+              <a class="icon home" href="#home">Home</a>
+              <a class="icon settings" href="#settings">Settings</a>
+              <a class="icon bug" href="#bugs">Bugs</a>
+              <a class="icon info" href="#bugs">About</a>
+            </footer>
+        </div>
+       	-->
+        
+         
+    </div>
+    
+    <div id="top_menu_page"></div>
+    
+</div>
+</body>
+</html>    

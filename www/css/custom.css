@@ -1,0 +1,555 @@
+/* ### MY ### */
+
+#afui.android {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #f2e0f3;
+}
+
+#afui.android .header {
+	border-color: #420245;
+	background-color: #75057b;
+	background-image: none;
+}
+
+#afui.android>#aside_menu, #afui.android>#menu {
+    border-right: 1px solid rgba(128,128,128,.5);
+    color: inherit;
+    background-color: #75057b;
+	background-image: none;
+}
+
+#afui.android select, #afui.android textarea, #afui.android input[type=text], #afui.android input[type=search], #afui.android input[type=password], #afui.android input[type=datetime], #afui.android input[type=datetime-local], #afui.android input[type=date], #afui.android input[type=month], #afui.android input[type=time], #afui.android input[type=week], #afui.android input[type=number], #afui.android input[type=email], #afui.android input[type=url], #afui.android input[type=tel], #afui.android input[type=color], #afui.android .input-group {
+	color: #75057b;
+	background-color: #FFF;
+	border-top-color: #75057b;
+	border-right-color: #75057b;
+	border-bottom-color: #75057b;
+	border-left-color: #75057b;
+	max-width: 300px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+:focus {
+	outline:0;
+}
+
+a {
+	color: #75057b;
+	text-decoration: none;
+}
+
+.hide {
+	display: none;
+}
+
+label.error {
+	display: none;
+}
+
+input.error, textarea.error, select.error, #afui input[type="text"].error, #afui input[type="password"].error, #afui input[type="email"].error {
+	border: 1px solid #75057b;
+	background-color: #E8C2C1;
+}
+
+#afui #backButton.countdown::before {
+	content:normal;
+}
+
+#afui.ios7 #GameStatus.countdown {
+	color: #000;
+}
+
+#afui header .left_text {
+	color: #fff;
+	display: block;
+	position: absolute;
+	line-height: 44px;
+	left: 25px;
+	text-overflow: ellipsis;
+	font-size: 14px;
+	padding: 0;
+	text-shadow: none;
+	background-color: transparent;
+	border: none;
+	border-color: transparent;
+	height: 44px;
+	top: 0;
+	border-radius: 0;
+	box-shadow: none;
+	margin: 0;
+	padding-left: 0;
+	text-align: center;
+	width: 50px;
+	padding: 0 !important;
+	margin: 0 !important;
+	white-space: nowrap;
+	left: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#afui #header h1 {
+	text-overflow: ellipsis;
+	overflow:hidden;
+	white-space: nowrap;
+}
+
+#afui .footer footer {
+	background-color: #ca75cf;
+	border-top-width: 2px;
+	border-top-style: solid;
+	border-top-color: #75057b;
+}
+
+#afui.android .footer>footer>a:not(.button).tab_del {
+	color: #F00;
+}
+
+#afui.android .footer {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
+
+#afui.android .footer>footer>a.pressed:not(.button) {
+	border-radius: 0;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	padding-top: 4px;
+}
+
+#afui.android #navbar a.pressed .icon:before {
+	top: 6px;
+}
+
+#afui .list > li > a.rotate_button:after {content: "";}
+
+#afui #navbar .icon:before {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    font-size: 25px;
+    margin: auto;
+    width: 100%;
+}
+
+
+
+
+/* layout */
+
+.logo_hold {
+	background-image: url(../images/logo.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	display: block;
+	padding: 0px;
+	height: 75px;
+	width: 100%;
+	margin-top: 10px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+}
+
+.text_box_blue {
+	color: #FFF;
+	background-color: #75057b;
+	padding: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	line-height: 20px;
+	font-weight: normal;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.text_box_white {
+	color: #000;
+	background-color: #FFFFFF;
+	padding: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	line-height: 20px;
+	font-weight: normal;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.buttons_hold {
+	text-align: center;
+	display: block;
+	width: 304px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.buttons_hold .button_text span {
+	text-align: center;
+	display: block;
+	width: 194px;
+}
+
+.button_regular {
+	font-size: 14px;
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+	background-color: #75057b;
+	text-align: center;
+	display: inline-block;
+	width: auto;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.page_button {
+	display: inline-block;
+	padding: 5px;
+	background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%);
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%);
+	border: 1px solid #C3C5CB;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width: auto;
+	font-size: 14px;
+	font-weight: normal;
+	color: #6A6A6A;
+	text-decoration: none;
+	text-align: center;
+	margin: 5px;
+}
+
+.form-title {
+	background-color: #ca75cf;
+	display: block;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	text-align: center;
+	padding: 5px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.form-group {
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.form-group .label {
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.photo_hold {
+	background-color: #FFF;
+	text-align: center;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 15px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.photo_hold .title {
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.photo_hold .img_link {
+	height: 200px;
+	display: block;
+	text-align: center;
+	font-size: 190px;
+	padding: 0px;
+	margin-bottom: 20px;
+	background-image: url(../images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.file_administrativna_zabrana_hold .photo_box .img_hold, .file_potvrda_visini_primanja_hold .photo_box .img_hold, .file_zahtev_kredit_hold .photo_box .img_hold {
+	-moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+}
+
+.photo_hold .photo_box .rotate_button {
+	color: #FFF;
+	background-color: #ca75cf;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	padding-top: 5px;
+	padding-right: 1px;
+	padding-bottom: 5px;
+	padding-left: 7px;
+	margin-top: 0px;
+	margin-right: 5px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	display: inline-block;
+}
+
+#afui .list li.search_results_hold:first-child {
+	border-top: 0px solid #ccc;
+}
+
+#afui .list>li>a:after {
+	color: #75057b;
+}
+
+.search_results_hold .title {
+	font-size: 18px;
+	font-weight: normal;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	display: block;
+	padding-bottom: 8px;
+	line-height: 18px;
+	color: #75057b;
+}
+
+.search_results_hold img {
+	margin-right: 5px;
+	display: inline-block;
+	background-color: #FFFFFF;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.search_results_hold .hold {
+	display: inline-block;
+	width: 70%;
+}
+
+.search_results_hold .subtext {
+	font-size: 12px;
+	display: block;
+	padding-top: 0px;
+	font-weight: normal;
+	line-height: 14px;
+	padding-bottom: 4px;
+	padding-left: 4px;
+	color: #333;
+}
+
+.upit_percentage_hold {
+    background-color: #f2e0f3;
+    height: 135px;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    margin-left: -10px;
+	-moz-opacity: 0.9;
+    -khtml-opacity: 0.9;
+    opacity: 0.9;
+	margin-top: -10px;
+}
+
+.upit_percentage_hold .percentage_hold {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #ca75cf;
+	height: 20px;
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 55px;
+}
+
+.upit_percentage_hold .percentage {
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #75057b;
+	height: 20px;
+	width: 0%;
+	background-image:
+	   -webkit-gradient(linear, 0 0, 100% 100%,
+		  color-stop(.25, rgba(255, 255, 255, .2)),
+		  color-stop(.25, transparent), color-stop(.5, transparent),
+		  color-stop(.5, rgba(255, 255, 255, .2)),
+		  color-stop(.75, rgba(255, 255, 255, .2)),
+		  color-stop(.75, transparent), to(transparent)
+	   );
+	background-image:
+		-moz-linear-gradient(
+		  -45deg,
+		  rgba(255, 255, 255, .2) 25%,
+		  transparent 25%,
+		  transparent 50%,
+		  rgba(255, 255, 255, .2) 50%,
+		  rgba(255, 255, 255, .2) 75%,
+		  transparent 75%,
+		  transparent
+	   );
+	-webkit-background-size: 50px 50px;
+	-moz-background-size: 50px 50px;
+	background-size: 50px 50px;
+	-webkit-animation: move 2s linear infinite;
+	-moz-animation: move 2s linear infinite;
+	transition: width 0.6s ease 0s;
+	-webkit-transition: width 0.6s ease 0s;
+	-moz-transition: width 0.6s ease 0s;
+}
+
+@-webkit-keyframes move {
+	0% {
+	   background-position: 0 0;
+	}
+	100% {
+	   background-position: 50px 50px;
+	}
+}
+
+@-moz-keyframes move {
+	0% {
+	   background-position: 0 0;
+	}
+	100% {
+	   background-position: 50px 50px;
+	}
+}
+
+
+@media (min-width: 768px) {
+
+	.form-group {
+		display: inline-block;
+		width: 48%;
+		margin-right: 0px;
+		margin-left: 10px;
+		margin-top: 10px;
+	}	
+	
+	#afui.android select, #afui.android textarea, #afui.android input[type=text], #afui.android input[type=search], #afui.android input[type=password], #afui.android input[type=datetime], #afui.android input[type=datetime-local], #afui.android input[type=date], #afui.android input[type=month], #afui.android input[type=time], #afui.android input[type=week], #afui.android input[type=number], #afui.android input[type=email], #afui.android input[type=url], #afui.android input[type=tel], #afui.android input[type=color], #afui.android .input-group {
+		margin: 0px;
+		max-width: 100%;
+	}
+	
+}
+/* layout end */
+
+
+
+/* popup */
+
+#afui.android .afPopup {
+	background: none;
+	background-color: #ffffff;
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	border: 7px solid #75057b;
+	color: #000;
+}
+
+#afui.android .afPopup>DIV {
+	font-size: 14px;
+	text-align: left;
+	padding: 10px;
+	margin: 0;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #aaa;
+	border-bottom-color: #aaa;
+}
+
+#afui.android .afPopup>HEADER {
+    background: #f2e0f3;
+}
+
+#afui.android .afPopup>FOOTER {
+    background: #fff;
+}
+
+#afui.android .afPopup>FOOTER>A, #afui.android.light .afPopup>FOOTER>A {
+    background: #75057b;
+    color: #FFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#afui.android .afPopup>FOOTER>A#cancel {
+    margin-left: 10px;
+    width: 110px;
+}
+
+#afui.android .afPopup>FOOTER>A#action {
+    margin-right: 10px;
+    width: 110px;
+}
+
+/* popup end */
+
+/*
+.afPopup div {
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;  
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;    
+	word-wrap: break-word;
+}
+*/
+
+/* ### MY - END ### */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
