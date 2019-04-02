@@ -21,6 +21,8 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="phonegap-version" value="cli-6.5.0"/>
+    <preference name="KeyboardShrinksView" value="true"/>
 </platform>
 
 <platform name="android">
@@ -28,6 +30,8 @@
     <!-- docs: https://github.com/apache/cordova-plugin-splashscreen -->
     <preference name="SplashMaintainAspectRatio" value="false" />
     <preference name="FadeSplashScreen" value="false"/>
+    <preference name="phonegap-version" value="cli-6.5.0"/>
+    <preference name="KeyboardShrinksView" value="true"/>
 </platform>
 
 <!-- use this feature to add command-lines to be used by Crosswalk builds on device -->
